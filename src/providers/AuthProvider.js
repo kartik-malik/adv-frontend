@@ -1,4 +1,5 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
+import jwtDecode from "jwt-decode";
 const AuthContext = createContext({
   token: null,
   isLoggedIn: false,
@@ -8,9 +9,23 @@ const AuthContext = createContext({
   setUser: () => {},
 });
 export const AuthContextProvider = (props) => {
-  const [loggedIn, setIsLoggedIn] = useState(false);
-  const [token, setToken] = useState(null);
+  const initialToken = localStorage.getItem("loginToken");
+  const [token, setToken] = useState(initialToken);
+  const [loggedIn, setIsLoggedIn] = useState(token);
   const [user, setUser] = useState({});
+  useEffect(() => {
+    if (initialToken) {
+      const data = jwtDecode(initialToken);
+      let date = new Date().getTime();
+      console.log(date);
+      console.log(data.exp);
+      console.log(date - data.iat);
+      loginHandler({ ...data, token: initialToken });
+    }
+  }, []);
+  // useEffect(() => {
+  //   console.log({ user });
+  // }, [user]);
   const logOutHandler = () => {
     setIsLoggedIn(false);
     localStorage.removeItem("loginToken", token);
@@ -18,10 +33,10 @@ export const AuthContextProvider = (props) => {
     setUser(null);
   };
   const loginHandler = ({ name, email, id, token }) => {
+    console.log({ loginData: { name, email, id, token } });
+    setUser({ name, email, id });
     setIsLoggedIn(true);
     setToken(token);
-    console.log(id);
-    setUser({ name, email, id });
     localStorage.setItem("loginToken", token);
   };
   return (

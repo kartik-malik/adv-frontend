@@ -14,7 +14,14 @@ const StartingPageContent = () => {
     <>
       <section className={`${classes.adcontainer}`}>
         {ads.map((ad) => {
-          return <AdCard key={ad.id} title={ad.title} id={ad.id} />;
+          return (
+            <AdCard
+              key={ad.id}
+              title={ad.title}
+              id={ad.id}
+              imageUrl={ad.imageUrl}
+            />
+          );
         })}
       </section>
     </>

@@ -11,6 +11,9 @@ const LoginForm = () => {
   const { loading, error, sendRequest: signInRequest, setError } = useHttp();
   const authCtx = useContext(AuthContext);
   const navigate = useNavigate();
+  // if (authCtx.isLoggedIn) {
+  //   navigate("/");
+  // }
   const submitHandler = (e) => {
     e.preventDefault();
     signInRequest(
@@ -20,6 +23,7 @@ const LoginForm = () => {
         body: { email, password },
       },
       (data) => {
+        console.log({ data });
         authCtx.login(data);
         navigate("/");
       }

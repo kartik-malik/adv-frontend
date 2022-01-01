@@ -16,14 +16,13 @@ const useHttp = () => {
         body: requestConfig.body ? JSON.stringify(requestConfig.body) : null,
       });
 
-      setIsLoading(false);
-
       const data = await response.json();
       if (!response.ok) {
         throw new Error(
           (data.error && data.error.message) || "Request failed!"
         );
       }
+      setIsLoading(false);
       applyData(data);
     } catch (err) {
       setIsLoading(false);
