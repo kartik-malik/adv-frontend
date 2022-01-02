@@ -9,7 +9,10 @@ const StartingPageContent = () => {
   useEffect(() => {
     sendRequest({ url: `${BASE_URL}/ad`, method: "GET" }, setAds);
   }, []);
-  console.log(ads);
+  // console.log(ads);
+  if (isLoading) {
+    return <p>Loading</p>;
+  }
   return (
     <>
       <section className={`${classes.adcontainer}`}>

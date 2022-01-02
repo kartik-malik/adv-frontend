@@ -10,7 +10,7 @@ const UserAdsPage = () => {
   const authCtx = useContext(AuthContext);
   const params = useParams();
   const [ads, setAds] = useState([]);
-  const { loading, error, sendRequest: getUserAds } = useHttp();
+  const { isLoading, error, sendRequest: getUserAds } = useHttp();
   const apiConfig = {
     url: `${BASE_URL}/ad/user/${params.userId}`,
     method: "GET",
@@ -25,6 +25,10 @@ const UserAdsPage = () => {
       setAds(res.data);
     });
   }, []);
+  // console.log({ iloading });
+  if (isLoading) {
+    return <p>Loading</p>;
+  }
   return (
     <>
       <Link to="/createad" className={classes.addButton}>
