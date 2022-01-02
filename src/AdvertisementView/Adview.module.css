@@ -2,3 +2,31 @@
   width: 300px;
   /* height: ; */
 }
+.deleteButton {
+  cursor: pointer;
+  display: block;
+  font: inherit;
+  color: white;
+  background-color: #9f5ccc;
+  border: 1px solid #9f5ccc;
+  border-radius: 4px;
+  margin-top: 1rem;
+
+  padding: 0.5rem 2.5rem;
+}
+.editButton {
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  font: inherit;
+  color: white;
+  background-color: rgb(17, 68, 85);
+  border: 1px solid #9f5ccc;
+  border-radius: 4px;
+  padding: 0.5rem 2.5rem;
+}
+@media screen and (max-width: 768px) {
+  .editButton {
+    display: block;
+  }
+}

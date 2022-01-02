@@ -16,10 +16,10 @@ export const AuthContextProvider = (props) => {
   useEffect(() => {
     if (initialToken) {
       const data = jwtDecode(initialToken);
-      let date = new Date().getTime();
-      console.log(date);
-      console.log(data.exp);
-      console.log(date - data.iat);
+      // let date = new Date().getTime();
+      // console.log(date);
+      // console.log(data.exp);
+      // console.log(date - data.iat);
       loginHandler({ ...data, token: initialToken });
     }
   }, []);

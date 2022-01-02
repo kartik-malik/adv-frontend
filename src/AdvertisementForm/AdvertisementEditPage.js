@@ -22,6 +22,8 @@ const AdvertisementEditPage = () => {
   const config = {
     url: `${BASE_URL}/ad/user/${authCtx.user.id}/${params.productId}`,
     method: "PUT",
+    "Content-Type": "application/json",
+    authorization: `Bearer ${authCtx.token}`,
   };
   const editAdvertisementHandler = ({
     title,
