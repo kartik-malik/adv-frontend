@@ -110,7 +110,9 @@ const AdvertisementForm = (props) => {
         </div>
       </div>
       {error && <p>{error}</p>}
-      <button type="submit">Submit</button>
+      <button type="submit" className={classes.actions}>
+        Submit
+      </button>
     </form>
   );
 };

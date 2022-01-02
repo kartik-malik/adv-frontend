@@ -16,14 +16,7 @@ const Adview = ({}) => {
     error,
     sendRequest: loadFeature,
   } = useHttp();
-  const deleteConfig = {
-    url: `${BASE_URL}/ad/user/${authCtx.user.id}/${productId}`,
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-      authorization: `Bearer ${authCtx.token}`,
-    },
-  };
+  // const deleteConfig = ;
   useEffect(() => {
     loadFeature(
       { url: `${BASE_URL}/ad/${productId}`, method: "GET" },
@@ -37,10 +30,20 @@ const Adview = ({}) => {
     return <p>Loading</p>;
   }
   const deleteAdvertisement = () => {
-    loadFeature(deleteConfig, () => {
-      alert("Deleted Succesfully");
-      navigate("/");
-    });
+    loadFeature(
+      {
+        url: `${BASE_URL}/ad/user/${authCtx.user.id}/${productId}`,
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${authCtx.token}`,
+        },
+      },
+      () => {
+        alert("Deleted Succesfully");
+        navigate("/");
+      }
+    );
   };
   return (
     !loadingAdData &&
@@ -63,7 +66,7 @@ const Adview = ({}) => {
             </button>
           </div>
         )}
-        {authCtx.isLoggedIn && <AllComments />}
+        {<AllComments />}
       </div>
     )
   );

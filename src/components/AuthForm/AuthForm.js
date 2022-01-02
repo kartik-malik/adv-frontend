@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { BASE_URL } from "../../constants";
 import useHttp from "../hooks/useHttp";
 import classes from "./AuthForm.module.css";
@@ -11,6 +11,7 @@ const AuthForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { loading, error, sendRequest: signUpRequest } = useHttp();
+  const navigate = useNavigate();
   const submitHandler = (e) => {
     e.preventDefault();
     signUpRequest(
@@ -21,13 +22,17 @@ const AuthForm = () => {
       },
       (data) => {
         authCtx.login(data);
+        navigate("/");
       }
     );
   };
   if (error) {
-    return <div>{error}</div>;
+    return <div>{error} Please refresh</div>;
   }
-  return (
+  // if (authCtx.isLoggedIn) {
+  //   navigate("/");
+  // }
+  return !authCtx.isLoggedIn ? (
     <section className={classes.auth}>
       <h1>{"Sign Up"}</h1>
       <form onSubmit={submitHandler}>
@@ -80,6 +85,8 @@ const AuthForm = () => {
       </form>
       {error && <p>{error}</p>}
     </section>
+  ) : (
+    <Navigate to="/" />
   );
 };
 

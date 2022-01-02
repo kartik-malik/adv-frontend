@@ -41,14 +41,14 @@
   padding: 0.25rem;
 }
 
-.actions {
+/* .actions {
   margin-top: 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+} */
 
-.actions button {
+.actions {
   cursor: pointer;
   font: inherit;
   color: white;

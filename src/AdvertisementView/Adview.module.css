@@ -1,5 +1,5 @@
 .image {
-  /* width: 300px; */
+  width: 250px;
   height: 300px;
 }
 .deleteButton {
@@ -27,6 +27,6 @@
 }
 @media screen and (max-width: 768px) {
   .editButton {
-    display: block;
+    /* display: block; */
   }
 }

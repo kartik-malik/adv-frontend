@@ -30,7 +30,7 @@ const LoginForm = () => {
     );
   };
 
-  return (
+  return !authCtx.isLoggedIn ? (
     <section className={classes.auth}>
       <h1>{"Login"}</h1>
       <form onSubmit={submitHandler}>
@@ -67,6 +67,8 @@ const LoginForm = () => {
       </form>
       {error && <p>{error}</p>}
     </section>
+  ) : (
+    <Navigate to="/" />
   );
 };
 

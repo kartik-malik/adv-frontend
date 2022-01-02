@@ -12,8 +12,8 @@
 }
 .adCardMain {
   padding: 1rem 3rem;
-  border: 1px solid rgb(97, 91, 91);
-  box-shadow: 4px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  /* box-shadow: 4px; */
   text-decoration: none;
 }
 .adCardTextContainer {
@@ -28,8 +28,8 @@
 @media screen and (max-width: 768px) {
   .adCardMain {
     padding: 0.1rem 0.3rem;
-    border: 1px solid rgb(97, 91, 91);
-    box-shadow: 4px;
+    /* border: 1px solid rgb(97, 91, 91); */
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     text-decoration: none;
   }
   .adCardTextContainer__text {

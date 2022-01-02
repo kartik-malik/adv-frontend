@@ -1,0 +1,36 @@
+.CommentAddContainer {
+}
+.commentsTextInput {
+  font-size: 1.5rem;
+  border: none;
+  border-bottom: 1px solid blueviolet;
+  transition: all 0.2s;
+}
+.commentsTextInput:focus {
+  outline: none;
+  border-bottom: 3px solid rgb(56, 9, 100);
+}
+.commentButton {
+  cursor: pointer;
+  /* display: block; */
+  font: inherit;
+  color: white;
+  background-color: #9f5ccc;
+  border: 1px solid #9f5ccc;
+  border-radius: 4px;
+  margin-top: 1rem;
+  padding: 0.5rem 2.5rem;
+}
+.commentInfo {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid blueviolet;
+  justify-content: space-between;
+  padding: 0.3rem 0.8rem;
+  margin-bottom: 0.2rem;
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0 0 4px 0;
+}
+.commentuserName {
+  text-align: right;
+}
